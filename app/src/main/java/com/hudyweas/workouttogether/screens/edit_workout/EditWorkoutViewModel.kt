@@ -40,6 +40,21 @@ class EditWorkoutViewModel @Inject constructor(
     workout.value = workout.value.copy(description = newValue)
   }
 
+  fun onAddressCountryChange(newValue: String) {
+    workout.value = workout.value.copy(country = newValue)
+  }
+  fun onAddressCityChange(newValue: String) {
+    workout.value = workout.value.copy(city = newValue)
+  }
+
+  fun onStreetChange(newValue: String) {
+    workout.value = workout.value.copy(street = newValue)
+  }
+
+  fun onBuildingNumberChange(newValue: String) {
+    workout.value = workout.value.copy(buildingNumber = newValue)
+  }
+
   fun onIconChange(newValue: Int) {
     workout.value = workout.value.copy(icon = newValue)
   }

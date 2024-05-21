@@ -36,6 +36,7 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.google.accompanist.permissions.shouldShowRationale
+import com.hudyweas.workouttogether.screens.workout_map.MapScreen
 import com.hudyweas.workouttogether.screens.workoutdetails.WorkoutDetailsScreen
 import kotlinx.coroutines.CoroutineScope
 
@@ -151,4 +152,6 @@ fun NavGraphBuilder.workoutTogetherGraph(appState: WorkoutTogetherAppState) {
       popUpScreen = { appState.popUp() }
     )
   }
+
+  composable(WORKOUT_MAP) { MapScreen() }
 }

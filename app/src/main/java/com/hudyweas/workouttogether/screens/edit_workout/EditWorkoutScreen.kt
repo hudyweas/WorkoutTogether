@@ -43,6 +43,10 @@ fun EditWorkoutScreen(
     onDateChange = viewModel::onDateChange,
     onIconChange = viewModel::onIconChange,
     onTimeChange = viewModel::onTimeChange,
+    onCountryChange = viewModel::onAddressCountryChange,
+    onCityChange = viewModel::onAddressCityChange,
+    onStreetChange = viewModel::onStreetChange,
+    onBuildingNumberChange = viewModel::onBuildingNumberChange,
 //    getMarkerAddress = viewModel::getMarkerAddressDetails,
     activity = activity
   )
@@ -58,6 +62,10 @@ fun EditWorkoutsScreenContent(
   onDateChange: (Long) -> Unit,
   onTimeChange: (Int, Int) -> Unit,
   onIconChange: (Int) -> Unit,
+  onCountryChange: (String) -> Unit,
+  onCityChange: (String) -> Unit,
+  onStreetChange: (String) -> Unit,
+  onBuildingNumberChange: (String) -> Unit,
   activity: AppCompatActivity?,
 //  getMarkerAddress: KFunction3<Double, Double, Context, Unit>?
 ) {
@@ -81,6 +89,12 @@ fun EditWorkoutsScreenContent(
     val fieldModifier = Modifier.fieldModifier()
     BasicField(AppText.title, workout.title, onTitleChange, fieldModifier)
     BasicField(AppText.description, workout.description, onDescriptionChange, fieldModifier)
+
+    //ADDRESS
+    BasicField(AppText.country, workout.country, onCountryChange, fieldModifier)
+    BasicField(AppText.city, workout.city, onCityChange, fieldModifier)
+    BasicField(AppText.street, workout.street, onStreetChange, fieldModifier)
+    BasicField(AppText.building_number, workout.buildingNumber, onBuildingNumberChange, fieldModifier)
 
     Spacer(modifier = Modifier.spacer())
 
@@ -182,6 +196,10 @@ fun EditWorkoutScreenPreview() {
       onTimeChange = { _, _ -> },
       onIconChange = { },
       activity = null,
+      onCountryChange = { },
+      onCityChange = { },
+      onStreetChange = { },
+      onBuildingNumberChange = { },
 //      getMarkerAddress = null
     )
   }
